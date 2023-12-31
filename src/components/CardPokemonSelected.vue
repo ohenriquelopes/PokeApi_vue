@@ -1,5 +1,5 @@
 <script setup>
-
+  const pokemon = defineProps(["name", "xp"]);
 </script>
 
 <template>
@@ -11,7 +11,7 @@
       <div class="row">
         <section class="col">
           <strong>XP:</strong>
-          <span>50</span>
+          <span>{{ pokemon.xp }}</span>
         </section>
         <section class="col">
           <strong>XP:</strong>

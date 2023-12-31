@@ -6,6 +6,7 @@ import CardPokemonSelected from "@/components/CardPokemonSelected.vue";
 let pokemons = reactive(ref());
 let urlBaseSvg = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/";
 let searchPokemonField = ref();
+let pokemonSelected = reactive(ref());
 
 onMounted(()=>{
   fetch("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0")
@@ -20,6 +21,13 @@ const filteredPokemons = computed(()=>{
   return pokemons.value;
 })
 
+const selectPokemon = async (pokemon) => {
+  await fetch(pokemon.url)
+      .then(response => response.json())
+      .then(response => pokemonSelected.value = response);
+  console.log(pokemonSelected.value)
+}
+
 </script>
 
 <template>
@@ -27,7 +35,10 @@ const filteredPokemons = computed(()=>{
     <div class="container">
       <div class="row mt-4">
         <div class="col-sm-12 col-md-6">
-          <card-pokemon-selected/>
+          <card-pokemon-selected
+          :name="pokemonSelected?.name"
+          :xp="pokemonSelected?.base_experience"
+          />
         </div>
         <div class="col-sm-12 col-md-6">
           <div class="card">
@@ -42,6 +53,7 @@ const filteredPokemons = computed(()=>{
                 :key="pokemon.name"
                 :name="pokemon.name"
                 :urlBaseSvg="urlBaseSvg + pokemon.url.split('/')[6] + '.svg'"
+                @click="selectPokemon(pokemon)"
               />
             </div>
           </div>
