@@ -7,8 +7,8 @@
       class="card CardPokemonSelected"
       :class="loading ? '' : 'animate__animated animate__flipInY'"
   >
-    <img v-if="pokemon.name" :src="pokemon.img" class="card-img-top" :alt="pokemon.name" height="250">
-    <img v-else src="https://raw.githubusercontent.com/yurimarcon/PokeVite/305b2449732026a2f631cbd5908fd2e178b2aa7e/src/assets/egg_pokemon.svg" class="card-img-top" :alt="pokemon.name" height="250">
+    <img v-if="pokemon.name" :src="pokemon.img" class="card-img-top" :alt="pokemon.name" height="400">
+    <img v-else src="https://raw.githubusercontent.com/yurimarcon/PokeVite/305b2449732026a2f631cbd5908fd2e178b2aa7e/src/assets/egg_pokemon.svg" class="card-img-top" :alt="pokemon.name" height="400">
     <div class="card-body">
       <h5 class="card-title text-center">{{ pokemon.name || '????'}}</h5>
       <hr>
@@ -27,6 +27,8 @@
 </template>
 
 <style scoped>
+
+
   .CardPokemonSelected{
     height: 75vh;
     background: rgb(72,63,251);
