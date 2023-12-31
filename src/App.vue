@@ -40,6 +40,13 @@
 </template>
 
 <style>
+
+body{
+  height: 100vh;
+  background: rgb(7,3,82);
+  background: radial-gradient(circle, rgba(7,3,82,1) 0%, rgba(9,9,121,1) 34%, rgba(0,212,255,1) 100%);
+}
+
 footer{
   position: fixed;
   bottom: 0;
