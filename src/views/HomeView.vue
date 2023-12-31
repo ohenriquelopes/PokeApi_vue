@@ -38,10 +38,12 @@ const selectPokemon = async (pokemon) => {
           <card-pokemon-selected
           :name="pokemonSelected?.name"
           :xp="pokemonSelected?.base_experience"
+          :height="pokemonSelected?.height"
+          :img="pokemonSelected?.sprites.other.dream_world.front_default"
           />
         </div>
         <div class="col-sm-12 col-md-6">
-          <div class="card">
+          <div class="card card-list">
             <div class="card-body row">
               <div class="mb-3">
                 <label hidden for="searchPokemonField" class="form-label">Pesquisar...</label>
@@ -64,5 +66,10 @@ const selectPokemon = async (pokemon) => {
 </template>
 
 <style scoped>
+  .card-list{
+      max-height: 450px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
 
 </style>

@@ -1,12 +1,12 @@
 <script setup>
-  const pokemon = defineProps(["name", "xp"]);
+  const pokemon = defineProps(["name", "xp", "height", "img" ]);
 </script>
 
 <template>
-  <div class="card">
-    <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/151.png" class="card-img-top" alt="Mew">
+  <div class="card CardPokemonSelected">
+    <img :src="pokemon.img" class="card-img-top" :alt="pokemon.name" height="250">
     <div class="card-body">
-      <h5 class="card-title text-center">Card title</h5>
+      <h5 class="card-title text-center">{{ pokemon.name }}</h5>
       <hr>
       <div class="row">
         <section class="col">
@@ -14,8 +14,8 @@
           <span>{{ pokemon.xp }}</span>
         </section>
         <section class="col">
-          <strong>XP:</strong>
-          <span>50</span>
+          <strong>Peso:</strong>
+          <span>{{ pokemon.height }}</span>
         </section>
       </div>
     </div>
@@ -23,5 +23,9 @@
 </template>
 
 <style scoped>
-
+  .CardPokemonSelected{
+    height: 450px;
+    background: rgb(72,63,251);
+    background: radial-gradient(circle, rgba(220,194,106,0.6) 0%, rgb(244, 0, 0, 0.4) 100%);
+  }
 </style>
